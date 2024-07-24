@@ -49,3 +49,22 @@ export default Card;
 
 이미지의 주소를 data-src에 넣고, 뷰포트에 들어왔을 때 그 값을 src로 옮겨 이미지를 로드한다.
 이렇게 하면 src 값이 할당되지 않기 때문에 처음에 이미지를 로드하지 않는다.
+
+## react-lazyload 라이브러리
+
+LazyLoad 컴포넌트로 감싸주는 것으로 이미지뿐만 아니라 일반 컴포넌트도 지연 로드할 수 있다.
+또 offset 옵션으로 화면에 들어오기 이전에 이미지를 미리 로드할 수 있다.
+
+```jsx
+return (
+  <ImageWrap>
+    <LazyLoad offset={1000}>
+      <Image
+        src={urls.small + "&t=" + new Date().getTime()}
+        alt={alt}
+        onClick={openModal}
+      />
+    </LazyLoad>
+  </ImageWrap>
+);
+```
